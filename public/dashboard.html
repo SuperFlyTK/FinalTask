@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+<header class="navbar">
+  <h2>Smart Task Manager</h2>
+  <nav>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="about.html">About</a>
+    <span id="userBadge" class="badge hidden"></span>
+    <a id="adminLink" class="hidden" href="admin.html">Admin</a>
+    <button onclick="logout()">Logout</button>
+  </nav>
+</header>
+
+<div class="page-container">
+  <div class="card" style="width:500px;">
+
+    <h3>My Tasks</h3>
+
+    <input id="title" placeholder="Task title">
+    <input id="description" placeholder="Description">
+    <input id="dueDate" type="date">
+
+    <select id="status">
+      <option value="pending">Pending</option>
+      <option value="in_progress">In Progress</option>
+      <option value="done">Done</option>
+    </select>
+
+    <select id="priority">
+      <option value="low">Low</option>
+      <option value="medium" selected>Medium</option>
+      <option value="high">High</option>
+    </select>
+
+
+    <button onclick="createTask()">Add Task</button>
+
+    <div class="pager">
+      <button class="btn-sm" onclick="prevPage()">Prev</button>
+      <span id="pageInfo">Page 1</span>
+      <button class="btn-sm" onclick="nextPage()">Next</button>
+    </div>
+
+    <ul id="taskList"></ul>
+
+  </div>
+</div>
+
+<!-- EDIT MODAL -->
+<div id="editModal" class="modal hidden">
+  <div class="modal-content">
+    <h3>Edit Task</h3>
+    <input id="editTitle" placeholder="Task title">
+    <input id="editDescription" placeholder="Description">
+    <input id="editDueDate" type="date">
+    <select id="editStatus">
+      <option value="pending">Pending</option>
+      <option value="in_progress">In Progress</option>
+      <option value="done">Done</option>
+    </select>
+    <select id="editPriority">
+      <option value="low">Low</option>
+      <option value="medium">Medium</option>
+      <option value="high">High</option>
+    </select>
+    <div class="modal-actions">
+      <button class="btn-sm" onclick="closeEdit()">Cancel</button>
+      <button class="btn-sm" onclick="saveEdit()">Save</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

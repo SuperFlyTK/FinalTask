@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Panel - Smart Task Manager</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+<header class="navbar">
+  <h2>Smart Task Manager</h2>
+  <nav>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="about.html">About</a>
+    <span id="userBadge" class="badge hidden"></span>
+    <a id="adminLink" class="hidden" href="admin.html">Admin</a>
+    <button onclick="logout()">Logout</button>
+  </nav>
+</header>
+
+<div class="page-container">
+
+  <div class="admin-container">
+
+    <h1>Admin Panel</h1>
+
+    <!-- USERS SECTION -->
+    <div class="admin-section">
+      <h3>All Users</h3>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Username</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="usersList">
+            <!-- populated by JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TASKS SECTION -->
+    <div class="admin-section">
+      <h3>All Tasks</h3>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Status</th>
+              <th>Owner</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="tasksList">
+            <!-- populated by JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

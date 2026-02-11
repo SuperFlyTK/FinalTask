@@ -1,0 +1,24 @@
+const express = require("express");
+const cors = require("cors");
+const path = require("path");
+const connectDB = require("./config/db");
+require("./config/env");
+
+const app = express();
+
+connectDB();
+
+app.use(cors());
+app.use(express.json());
+
+// API routes
+app.use("/api/auth", require("./routes/auth.routes"));
+app.use("/api/tasks", require("./routes/task.routes"));
+app.use("/api/admin", require("./routes/admin.routes"));
+
+// static frontend
+app.use(express.static(path.join(__dirname, "../public")));
+
+app.listen(process.env.PORT, () =>
+  console.log(`Server running on port ${process.env.PORT}`)
+);
