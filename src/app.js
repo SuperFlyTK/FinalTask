@@ -2,11 +2,16 @@ const express = require("express");
 const cors = require("cors");
 const path = require("path");
 const connectDB = require("./config/db");
+const ensureDefaultUsers = require("./config/bootstrap");
 require("./config/env");
 
 const app = express();
 
-connectDB();
+connectDB().then(() => {
+  ensureDefaultUsers().catch((err) =>
+    console.error("Default users error:", err.message)
+  );
+});
 
 app.use(cors());
 app.use(express.json());
