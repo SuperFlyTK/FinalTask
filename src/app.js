@@ -19,6 +19,8 @@ app.use("/api/admin", require("./routes/admin.routes"));
 // static frontend
 app.use(express.static(path.join(__dirname, "../public")));
 
-app.listen(process.env.PORT, () =>
-  console.log(`Server running on port ${process.env.PORT}`)
+const PORT = process.env.PORT || 10000;
+
+app.listen(PORT, () =>
+  console.log(`Server running on port ${PORT}`)
 );
